@@ -28,3 +28,13 @@ Below are the topics which will be discussed
 Here is a flowchart on how to make best design decision for the sytem
 
 ![Client Updates FlowChart](https://github.com/NikhilManu/System-Design/blob/main/images/HLD/Common%20Patterns/01%20-%20Pushing%20Realtime%20Updates/Client%20Updates%20Flowchart.png)
+
+### Server Side Push/Pull
+
+This explains how we can get the updates propogate from the source to the server. We can call this <b>Trigger</b>
+
+There are three patterns that we commonly use:
+* Pulling via Polling
+* Pushing via Consistent Hashing
+* Pushing via Pub/Sub
+
