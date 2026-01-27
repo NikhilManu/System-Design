@@ -1,28 +1,13 @@
-# Pushing Realtime Updates
+# Networking 101 
 
-## Problem
-
-Consider Google Docs. When one user types a character, all other users viewing the document need to see change suddenly. Here we cant have the users polling the server for updates every few ms without crushing the infrastructure
-
-## Solution
-
-When system requires real-time updates, push notification etc, the solution requires two distinct pieces:
-
-* how do we get updates from server to the client?
-* how do we get updates from the source to the server?
-
-### Client-Server Connection Protocols
-
-Real-time systems frequently need persistent connections or clever polling strategies to enable servers to push updates to clients.
-
-#### Networking Layers
+## Networking Layers
 
 The most important layers are
 * Network Layer (Layer 3)
 * Transport Layer (Layer 4)
 * Application Layer (Layer 7)
 
-##### Network Layer
+### Network Layer
 
 * At this layer is IP, the protocol that handles routing and addressing.
 * It is responsible for 
@@ -34,7 +19,7 @@ The most important layers are
   * duplicated
   * or reordered along the way
 
-##### Transport Layer
+### Transport Layer
 
 * At this layer is TCP and UDP, which provide the end-to-end communication service
   * *TCP is a connection-oriented protocol*: 
@@ -48,11 +33,11 @@ The most important layers are
     * You can send data to any other IP address on n/w without any prior setup.
     * It doesn't ensures that the data is delivered correctly or in order.
 
-##### Application Layer
+### Application Layer
 
 At the final layer are the application protocols like DNS, HTTP, WebSockets, WebRTC.
 
-#### Request LifeCycle
+## Request LifeCycle
 
 ![Request Lifecycle](https://github.com/NikhilManu/System-Design/blob/main/images/HLD/Common%20Patterns/01%20-%20Pushing%20Realtime%20Updates/Request%20LifeCycle.png)
 
@@ -79,7 +64,7 @@ Here the main two points to note are
 * Second, the TCP connection itself represents state that both the client and server must maintain
   * Unless we use features like HTTP keep-alive, we need to repeat this connection setup which a significant overhead.
 
-##### With Load Balancers
+### With Load Balancers
 
 Load balancers distribute incoming requests across these servers to ensure even load distribution and high availability.
 
@@ -87,7 +72,7 @@ Two main types of load balancers
 * *Layer 4 Load Balancer*
 * *Layer 7 Load Balancer*
 
-###### L4 Load Balancer
+### L4 Load Balancer
 
 * They operate on the *transport layer(TCP/UDP)*
 * They make routing decisions based on network information like IP addresses and port, without looking at actual contents of packet
@@ -99,13 +84,13 @@ Key characteristics of L4 Load Balancers:
 * Cannot make routing decision based on application data
 * Mostly used when raw perf is the priority
 
-###### L7 Load Balancer
+### L7 Load Balancer
 
 * They operate on the *application layer(HTTP)*
 * They can examine actual content of each request and make intelligent routing decision
 
 Key characteristics of L7 Load Balancers:
-* Terminate incoming connectinos and create new ones to backend servers
+* Terminate incoming connections and create new ones to backend servers
 * Can route based on request content (URL, header, cookies etc)
 * More CPU-intensive due to packet inspection
 * Provide more flexibility and features
