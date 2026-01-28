@@ -38,3 +38,7 @@ There are three patterns that we commonly use:
 * Pushing via Consistent Hashing
 * Pushing via Pub/Sub
 
+### When not to use in Interviews
+
+Avoid real-time updates when you can get away with a simple polling model. If our system is not latency sensitive, polling is a great baseline and minimizes complexity.
+
