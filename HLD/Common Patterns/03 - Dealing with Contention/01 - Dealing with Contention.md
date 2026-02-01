@@ -96,6 +96,8 @@ WHERE concert_id = 1
 AND availble_seat = 1 -- Stale value
 ```
 
+This approach makes sense when conflicts are uncommon. For most e-commerce scenarios the change of two people buying the exact same item at exact same moment is low. The occasional retry is worth it.
+
 ### Mulitple Nodes
 
 Consider a bank transfer, Alice lives in db A and Bob lives in db B. Now we cant use a single database transaction to handle the transfer.
