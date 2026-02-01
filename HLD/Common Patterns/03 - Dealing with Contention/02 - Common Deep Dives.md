@@ -6,7 +6,7 @@ General Guide line on when to use which approach
 
 Here is a flow chart for more simplified version
 
-![Flow Chart]([sdf](https://github.com/NikhilManu/System-Design/blob/main/images/HLD/Common%20Patterns/03%20-%20Dealing%20with%20Contention/Right%20Approach%20Flow%20Chart.png))
+![Flow Chart](https://github.com/NikhilManu/System-Design/blob/main/images/HLD/Common%20Patterns/03%20-%20Dealing%20with%20Contention/Right%20Approach%20Flow%20Chart.png)
 
 ### When to use in Interviews
 
