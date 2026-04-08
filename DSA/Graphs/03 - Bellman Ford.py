@@ -1,5 +1,5 @@
 # Time - O(V * E) | Space - O(V)
-def bellmanFord(n, edges, src):
+def bellmanFord(n: int, edges: list[tuple[int, int, int]], src: int) -> list[int]:
     dist = [float('inf')] * n 
     dist[src] = 0
 
