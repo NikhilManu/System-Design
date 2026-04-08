@@ -1,3 +1,4 @@
+# Time - O(V * E) | Space - O(V)
 def bellmanFord(n, edges, src):
     dist = [float('inf')] * n 
     dist[src] = 0
