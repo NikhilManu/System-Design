@@ -1,6 +1,7 @@
 # Find shortest path from source to all vertices in a graph.
 import heapq
 
+# Time - O((V + E) log V) | Space - O(V)
 def dijkstra(n: int, adj: dict[int, list[tuple[int, int]]], src: int) -> list[int]:
     minHeap = [(0, src)]
     distances = [float('inf')] * n
