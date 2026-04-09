@@ -15,6 +15,9 @@ class DSU:
     def unionBySize(self, n1, n2):
         p1, p2 = self.findParent(n1), self.findParent(n2)
 
+        if p1 == p2:
+            return
+        
         if self.size[p1] < self.size[p2]:
             self.parent[p1] = p2
             self.size[p2] += self.size[p1]
@@ -25,6 +28,9 @@ class DSU:
     def unionByRank(self, n1, n2):
         p1, p2 = self.findParent(n1), self.findParent(n2)
 
+        if p1 == p2:
+            return
+        
         if self.rank[p1] < self.rank[p2]:
             self.parent[p1] = p2
         elif self.rank[p2] < self.rank[p1]:
