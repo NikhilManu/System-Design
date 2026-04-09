@@ -1,3 +1,4 @@
+# Time - O(4 * alpha) | Space - O(n)
 class DSU:
     def __init__(self, n: int):
         self.parent = list(range(n))
